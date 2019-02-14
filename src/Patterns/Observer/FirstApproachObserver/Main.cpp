@@ -24,9 +24,9 @@ public:
 /*PREGUNTAS SIN RESOLVER: 
  *¿que pasa si tengo a un observer que no observa a nadie? vamos que ese observador no está en ningua lista de ningun sujeto
  *
- *¿que pasa si yo no que el sujeto tengo un puntero al objeto observer entero sino solo a su metodo OnNotify?
+ *¿que pasa si yo no quiero que el sujeto tengo un puntero al objeto observer entero sino solo a su metodo OnNotify?
  *
- *¿Los eventos que sean strings ya esta bien pero podria cada observador tener sus propios eventos definidos sin ser constantes 
+ *Los eventos, que sean strings ya esta bien, ¿pero podria cada observador tener sus propios eventos definidos sin ser constantes 
  *ni enums?
  *
  *¿Le paso la Entidad pero no hago nada con ella?
