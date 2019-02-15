@@ -1,5 +1,6 @@
 #pragma once
 #include "Types.h"
+
 class Object
 {
 public:
@@ -10,3 +11,11 @@ public:
 	~Object ( );
 };
 
+inline Object::Object ( )
+{
+}
+
+
+inline Object::~Object ( )
+{
+}

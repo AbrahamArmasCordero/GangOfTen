@@ -1,6 +1,4 @@
 #pragma once
-#include "Entity.h"
-#include "Common_Includes.h"
 #include "Observer.h"
 
 class Subject
@@ -17,11 +15,12 @@ protected:
 		}
 	}*head_ = nullptr;
 
+
 public:
 	Subject ( );
 	void AddObserver ( Observer* ob );
 	void RemoveObserver ( Observer* ob );
-	void notify (const Entity& entity, std::string event_ );
+	void notify (const Entity* entity, std::string event_ );
 	virtual ~Subject ( );
 };
 
