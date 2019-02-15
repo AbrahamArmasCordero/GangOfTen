@@ -5,7 +5,7 @@ class Physics : public Subject
 {
 private:
 	std::vector<Entity*> inSceneEntities;
-	void UpdateEntity ( Entity& entity );
+	void UpdateEntity ( Entity* entity );
 public:
 	Physics ( );
 	void Update ( );
@@ -13,8 +13,25 @@ public:
 	~Physics ( );
 };
 
+inline void Physics::UpdateEntity ( Entity* entity )
+{
+	std::cout << "Estoy cayendo asi que envio una notificacion\n";
+	notify ( entity, "Ha caido" );
+
+	std::cout << "Ahora estoy pulsando\n";
+	notify ( entity, "Pulsado" );
+}
+
 inline Physics::Physics ( )
 {
+}
+
+inline void Physics::Update ( )
+{
+	for ( Entity* entity_ : inSceneEntities )
+	{
+		UpdateEntity ( entity_ );
+	}
 }
 
 

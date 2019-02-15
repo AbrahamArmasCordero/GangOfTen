@@ -24,6 +24,10 @@ inline Scene::Scene ( )
 	inSceneEntities.push_back ( &player );
 }
 
+inline Scene::~Scene ( )
+{
+}
+
 class GameMaster
 {
 private:
@@ -35,6 +39,19 @@ public:
 	GameMaster ( );
 	~GameMaster ( );
 };
+
+inline void GameMaster::GameLoop ( )
+{
+ //physics update
+	for (Subject* subject_ : subjects)
+	{
+		if ( typeid(*subject_) == typeid(Physics) ) /*¡¡¡¡AVISO!!! no se lo que estoy haciendo, esto es codigo de ejemplo porfavor 
+													si vas a hacer algo similar mira exactamente como funciona <typeinfo>*/
+		{
+			((Physics*)subject_)->Update ( );
+		}
+	}
+}
 
 inline GameMaster::GameMaster ( )
 {
@@ -52,10 +69,6 @@ inline GameMaster::GameMaster ( )
 	((Physics*)physics)->SetEntities (currentScene->GetEntities());
 
 
-	//physics.notify ( &player, "Ha caido" );
-
-	//physics.RemoveObserver ( uiFacade );
-	//physics.notify ( &player, "Pulsado" );
 }
 
 inline GameMaster::~GameMaster ( )

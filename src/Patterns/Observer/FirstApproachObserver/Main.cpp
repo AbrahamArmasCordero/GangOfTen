@@ -29,6 +29,6 @@
 int main ( )
 {
 	GameMaster master = GameMaster ( );
-	
+	master.GameLoop ( );
 	return 0;
 }
