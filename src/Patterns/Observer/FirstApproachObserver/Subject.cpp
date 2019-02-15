@@ -1,7 +1,5 @@
 #include "Subject.h"
 
-
-
 Subject::Subject ( )
 {
 }
@@ -47,13 +45,13 @@ void Subject::RemoveObserver ( Observer* ob )
 	}
 }
 
-void Subject::notify ( const Entity& entity, std::string event_ )
+void Subject::notify ( const Entity* entity, std::string event_ )
 {
 	ObserverNode* current = head_;
 
 	while (current != nullptr)
 	{
-		current->observer->onNotify ( entity, event_ );
+		current->observer->onNotify (entity, event_ );
 		current = current->next;
 	}
 }

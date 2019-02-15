@@ -17,3 +17,11 @@ public:
 	void Update ( );
 };
 
+inline Entity::Entity ( )
+{
+}
+
+
+inline Entity::~Entity ( )
+{
+}

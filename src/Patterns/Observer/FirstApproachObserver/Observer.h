@@ -1,13 +1,20 @@
 #pragma once
 #include "Common_Includes.h"
-#include "Entity.h"
 
 /*INTERFACE*/
 class Observer
 {
 public:
 	Observer ( );
+	virtual void onNotify ( const Entity* x, std::string event_ ) = 0;
 	virtual ~Observer ( );
-	virtual void onNotify (const Entity& x, std::string event_ ) = 0;
 };
 
+inline Observer::Observer ( )
+{
+}
+
+
+inline Observer::~Observer ( )
+{
+}
