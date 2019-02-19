@@ -45,7 +45,7 @@ inline void GameMaster::GameLoop ( )
  //physics update
 	for (Subject* subject_ : subjects)
 	{
-		if ( typeid(*subject_) == typeid(Physics) ) /*¡¡¡¡AVISO!!! no se lo que estoy haciendo, esto es codigo de ejemplo porfavor 
+		if ( typeid(*subject_) == typeid(Physics) ) /*ï¿½ï¿½ï¿½ï¿½AVISO!!! no se lo que estoy haciendo, esto es codigo de ejemplo porfavor 
 													si vas a hacer algo similar mira exactamente como funciona <typeinfo>*/
 		{
 			((Physics*)subject_)->Update ( ); //si es el "motor" de fisicas updatealo
@@ -55,18 +55,23 @@ inline void GameMaster::GameLoop ( )
 
 inline GameMaster::GameMaster ( )
 {
+	//creamos los sujetos interesantes a observar
 	Subject* physics = new Physics ( );
 	subjects.push_back (physics);
 
+	//creamos observers
 	Observer* achievements = new Achievements ( );
 	Observer* uiFacade = new UI ( );
 
-	physics->AddObserver ( achievements );
+	//ponemos los observadores a observar
+	physics->AddObserver ( achievements ); 
 	physics->AddObserver ( uiFacade );
 
+	//creamos escena
 	currentScene = new Scene ( );
 
-	((Physics*)physics)->SetEntities (currentScene->GetEntities()); //cogemos las entidades de la escena
+	((Physics*)physics)->SetEntities (currentScene->GetEntities()); /* le pasamos las entidades que tiene que updatear al
+																	motor de fisicas */
 }
 
 inline GameMaster::~GameMaster ( )
