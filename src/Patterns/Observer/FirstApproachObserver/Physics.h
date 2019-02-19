@@ -15,10 +15,12 @@ public:
 
 inline void Physics::UpdateEntity ( Entity* entity )
 {
+	//aqui estoy simulando como si comprobasemos los atributos interesantes de esa entidad y hiciesemos su update y segun sus
+	//atributos mandasemos señales
 	std::cout << "Estoy cayendo asi que envio una notificacion\n";
 	notify ( entity, "Ha caido" );
 
-	std::cout << "Ahora estoy pulsando\n";
+	std::cout << "Ahora estoy pulsando\n";/* el motor de fisicas no pulsa botones, lo se*/
 	notify ( entity, "Pulsado" );
 }
 

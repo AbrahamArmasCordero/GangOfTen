@@ -55,20 +55,23 @@ inline void GameMaster::GameLoop ( )
 
 inline GameMaster::GameMaster ( )
 {
+	//creamos los sujetos interesantes a observar
 	Subject* physics = new Physics ( );
 	subjects.push_back (physics);
 
+	//creamos observers
 	Observer* achievements = new Achievements ( );
 	Observer* uiFacade = new UI ( );
 
-	physics->AddObserver ( achievements );
+	//ponemos los observadores a observar
+	physics->AddObserver ( achievements ); 
 	physics->AddObserver ( uiFacade );
 
+	//creamos escena
 	currentScene = new Scene ( );
 
-	((Physics*)physics)->SetEntities (currentScene->GetEntities());
-
-
+	((Physics*)physics)->SetEntities (currentScene->GetEntities()); /* le pasamos las entidades que tiene que updatear al
+																	motor de fisicas */
 }
 
 inline GameMaster::~GameMaster ( )
